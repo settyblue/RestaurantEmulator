@@ -19,4 +19,9 @@ public class DinerEntry {
 	public int foodServedTime;
 	public int timeOfLeaving;
 	
+	public String toString(){
+		return arrivalTime + "\t" + seatingTime + "\t" + tableNumber + "\t" + cookNumber + "\t\t" + 
+				foodServedTime + "\t" + timeOfLeaving+ "\t" + burgerMachineUsedTime+ "\t" + friesMachineUsedTime+ "\t" +
+				sodaMachineUsedTime+ "\t" + sundaeMachineUsedTime;
+	}
 }

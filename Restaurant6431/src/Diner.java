@@ -73,7 +73,7 @@ public class Diner implements Runnable{
 		DinerEntry dinerEntry = output.getOutputData()[dinerId];
 		seatedTable = Tables.getStaticInstance().getTableForDiner(this);
 		seatingTime = Timer.getStaticInstance().getTime();
-		System.out.println("Time : "+Timer.getStaticInstance().getTime()+" "+Thread.currentThread().getName() + " : seated on Table-" + seatedTable.tableId);
+		//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" "+Thread.currentThread().getName() + " : seated on Table-" + seatedTable.tableId);
 		seatedTable.setOrder(this.order);
 		seatedTable.waitOnCookAssigned();
 		cook = seatedTable.cook;
