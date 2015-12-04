@@ -91,12 +91,13 @@ public class Tables {
 		if(index == -1)
 			return null;
 		tables[index].cookAssigned = true;
-		System.out.println("Time : "+Timer.getStaticInstance().getTime()+" cook assigned to table-"+index+" ;served by "+Thread.currentThread().getName());
+		//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" cook assigned to table-"+index+" ;served by "+Thread.currentThread().getName());
 		notifyAll();
 		return tables[index]; 
 	}
 	
 	synchronized public void releaseTable(int index) {
+		System.out.println("Time : "+Timer.getStaticInstance().getTime()+"\t"+Thread.currentThread().getName()+" is leaving.");
 		tables[index].release();
 	}
 }

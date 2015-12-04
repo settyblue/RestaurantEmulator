@@ -35,7 +35,7 @@ public class VendingMachine {
 					synchronized(burgerMachine) {
 						if(!burgerMachine.isOccupied()) {		
 							burgerMachine.occupy();
-							System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Burger machine being alloted to : "+Thread.currentThread().getName());
+							//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Burger machine being alloted to : "+Thread.currentThread().getName());
 							return burgerMachine;
 						}
 					}
@@ -46,7 +46,7 @@ public class VendingMachine {
 					synchronized(friesMachine) {
 						if(!friesMachine.isOccupied()) {	
 							friesMachine.occupy();
-							System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Fries machine being alloted to : "+Thread.currentThread().getName());
+							//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Fries machine being alloted to : "+Thread.currentThread().getName());
 							return friesMachine;
 						}
 					}
@@ -57,7 +57,7 @@ public class VendingMachine {
 					synchronized(cokeMachine) {
 						if(!cokeMachine.isOccupied()) {	
 							cokeMachine.occupy();
-							System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Coke machine being alloted to : "+Thread.currentThread().getName());
+							//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Coke machine being alloted to : "+Thread.currentThread().getName());
 							return cokeMachine;
 						}
 					}
@@ -68,7 +68,7 @@ public class VendingMachine {
 					synchronized(sundaeMachine) {
 						if(!sundaeMachine.isOccupied()) {	
 							sundaeMachine.occupy();
-							System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Sundae machine being alloted to : "+Thread.currentThread().getName());
+							//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Sundae machine being alloted to : "+Thread.currentThread().getName());
 							return sundaeMachine;
 						}
 					}

@@ -73,10 +73,14 @@ public class Diner implements Runnable{
 		DinerEntry dinerEntry = output.getOutputData()[dinerId];
 		seatedTable = Tables.getStaticInstance().getTableForDiner(this);
 		seatingTime = Timer.getStaticInstance().getTime();
-		//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" "+Thread.currentThread().getName() + " : seated on Table-" + seatedTable.tableId);
+		System.out.println("Time : "+Timer.getStaticInstance().getTime()+"\t"+Thread.currentThread().getName() + " is seated on Table-" + seatedTable.tableId);
 		seatedTable.setOrder(this.order);
 		seatedTable.waitOnCookAssigned();
 		cook = seatedTable.cook;
+		while(cook==null){
+			;
+		}
+		//System.out.println("Cook - " + cook.getId());
 		dinerEntry.cookNumber = cook.getId();
 		seatedTable.waitOnFoodServed();
 		
@@ -85,7 +89,7 @@ public class Diner implements Runnable{
 		dinerEntry.tableNumber = seatedTable.tableId;
 		
 		this.servedTime = Timer.getStaticInstance().getTime();
-		System.out.println("Time : "+Timer.getStaticInstance().getTime()+" "+Thread.currentThread().getName() + " : Started Eating");
+		System.out.println("Time : "+Timer.getStaticInstance().getTime()+"\t"+Thread.currentThread().getName() + " Started Eating");
 		while (Timer.getStaticInstance().getTime() < servedTime + 30) {
 			// eating
 			try {

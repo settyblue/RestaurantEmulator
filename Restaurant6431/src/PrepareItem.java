@@ -72,19 +72,19 @@ public class PrepareItem {
 		switch(machine) {
 		case "BurgerMachine":
 			order.burgersReady = true;
-			System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Burgers are ready by "+Thread.currentThread().getName());
+			//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Burgers are ready by "+Thread.currentThread().getName());
 			break;
 		case "FriesMachine":
 			order.friesReady = true;
-			System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Fries are ready by "+Thread.currentThread().getName());
+			//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Fries are ready by "+Thread.currentThread().getName());
 			break;
 		case "CokeMachine":
 			order.cokeReady = true;
-			System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Coke is ready by "+Thread.currentThread());
+			//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Coke is ready by "+Thread.currentThread());
 			break;
 		case "SundaeMachine":
 			order.sundaeReady = true;
-			System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Sundae is ready by "+Thread.currentThread().getName());
+			//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Sundae is ready by "+Thread.currentThread().getName());
 			break;
 		}
 		

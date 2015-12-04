@@ -62,7 +62,7 @@ public class Diners {
 		for(int i=0; i<diners.length; i++) {
 			if(diners[i].getArrivalTime() == Timer.getStaticInstance().getTime()) {
 				diners[i].dinerEnterRestaurant();
-				System.out.println("Time : "+Timer.getStaticInstance().getTime()+" : diner number " + i + " arrived.");
+				System.out.println("Time : "+Timer.getStaticInstance().getTime()+"\t"+"Diner Number - " + i + " arrived.");
 				this.numberOfCurrentDiners++;
 			}
 		}
