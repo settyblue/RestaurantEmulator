@@ -2,26 +2,25 @@
  * 
  */
 
-/**
- * @author Jhansi
- *
- */
 public class PrepareItem {
 	public int timer;
 	public boolean isOccupied;
-	private String machine;
+	private int Id;
 	
-	public PrepareItem(String name) {
-		this.machine = name;
+	public int getId() {
+		return Id;
+	}
+
+	public void setId(int id) {
+		Id = id;
+	}
+
+	public PrepareItem() {
 		isOccupied = false;
     }
 	
-	public String getName() {
-		return machine;
-	}
-	
 	synchronized public void occupy() {
-		isOccupied = true;
+		this.isOccupied = true;
 	}
 	
 	synchronized public boolean isOccupied() {
@@ -29,38 +28,32 @@ public class PrepareItem {
 	}
 	
 	public void prepare(DinerOrder order, Cook cook) {
-		int timeForCooking = timer;
-		switch(machine) {
-		case "BurgerMachine":
-			timeForCooking = order.numberOfBurgers * timer;
-			break;
-		case "FriesMachine":
-			timeForCooking = order.numberOfFries * timer;
-			break;
-		case "CokeMachine":
-			timeForCooking = order.numberOfCokes * timer;
-			break;
-		case "SundaeMachine":
-			timeForCooking = order.numberOfSundae * timer;
-			break;
-		}
 		int startTime = Timer.getStaticInstance().getTime();
-		switch(machine) {
-		case "BurgerMachine":
-			cook.timeBurgerMacihineWasUsed = startTime;
+		int cookingFinishTime = 0;
+		switch(Id) {
+		case 0:
+			cookingFinishTime = startTime + order.getItemCount().getNumberOfBurgers() * timer;
+			cook.getTimeUsed().setTimeBurgerMacihineWasUsed(startTime);
+			order.getItemReady().setBurgersReady(true);;
 			break;
-		case "FriesMachine":
-			cook.timeFriesMachineWasUsed = startTime;
+		case 1:
+			cookingFinishTime = startTime + order.getItemCount().getNumberOfFries() * timer;
+			cook.getTimeUsed().setTimeFriesMachineWasUsed(startTime);
+			order.getItemReady().setFriesReady(true);
 			break;
-		case "CokeMachine":
-			cook.timeSodaMachineWasUsed = startTime;
+		case 2:
+			cookingFinishTime = startTime + order.getItemCount().getNumberOfCokes() * timer;
+			cook.getTimeUsed().setTimeSodaMachineWasUsed(startTime);
+			order.getItemReady().setCokeReady(true);
 			break;
-		case "SundaeMachine":
-			cook.timeSundaeMachineWasUsed = startTime;
-			break;	
+		case 3:
+			cookingFinishTime = startTime + order.getItemCount().getNumberOfSundae() * timer;
+			cook.getTimeUsed().setTimeSundaeMachineWasUsed(startTime);
+			order.getItemReady().setSundaeReady(true);
+			break;
 		}
-		
-		while(Timer.getStaticInstance().getTime() < startTime + timeForCooking) {
+
+		while(Timer.getStaticInstance().getTime() < cookingFinishTime) {
 			//cooking
 			try {
 				synchronized(Timer.getStaticInstance()) {
@@ -69,24 +62,6 @@ public class PrepareItem {
 			} catch(InterruptedException ie) {}
 		}
 		this.isOccupied = false;
-		switch(machine) {
-		case "BurgerMachine":
-			order.burgersReady = true;
-			//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Burgers are ready by "+Thread.currentThread().getName());
-			break;
-		case "FriesMachine":
-			order.friesReady = true;
-			//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Fries are ready by "+Thread.currentThread().getName());
-			break;
-		case "CokeMachine":
-			order.cokeReady = true;
-			//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Coke is ready by "+Thread.currentThread());
-			break;
-		case "SundaeMachine":
-			order.sundaeReady = true;
-			//System.out.println("Time : "+Timer.getStaticInstance().getTime()+" Sundae is ready by "+Thread.currentThread().getName());
-			break;
-		}
 		
 	}
 }

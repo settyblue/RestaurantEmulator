@@ -2,20 +2,13 @@
  * 
  */
 
-/**
- * @author Jhansi
- *
- */
 public class Cook implements Runnable{
 	
 	private int cookId;		
 	private Table tableServing;
 	private DinerOrder order;
 	private Thread th;
-	public int timeBurgerMacihineWasUsed;
-	public int timeFriesMachineWasUsed;
-	public int timeSodaMachineWasUsed;
-	public int timeSundaeMachineWasUsed;
+	public TimeUsed timeUsed = new TimeUsed();
 	
 	public Cook(int cookId) {
 		this.cookId = cookId;
@@ -31,9 +24,7 @@ public class Cook implements Runnable{
 		while(Timer.getStaticInstance().getTime() <= 120 || Diners.getStaticInstance().getNumberOfCurrentDiners() > 0) {
 				tableServing = Tables.getStaticInstance().getTableForCook();
 				if(tableServing != null) {
-					this.timeFriesMachineWasUsed = -1;
-					this.timeSodaMachineWasUsed = -1;
-					this.timeSundaeMachineWasUsed = -1;
+					populateTimeUsed();
 					tableServing.assignCook(this);
 					tableServing.waitOnOrder();
 					order = tableServing.getOrder();
@@ -42,12 +33,31 @@ public class Cook implements Runnable{
 						PrepareItem fooditem = machine.getMachineFor(order);
 						fooditem.prepare(order, this);
 					}
-					tableServing.timeBurgerMacihineWasUsed = this.timeBurgerMacihineWasUsed;
-					tableServing.timeFriesMachineWasUsed = this.timeFriesMachineWasUsed;
-					tableServing.timeSodaMachineWasUsed = this.timeSodaMachineWasUsed;
-					tableServing.timeSundaeMachineWasUsed = this.timeSundaeMachineWasUsed;
+					populateTimeUsed(this.tableServing);
 					tableServing.serveFood();
 				}
 		}
+	}
+
+	/**
+	 * @param table
+	 */
+	private void populateTimeUsed(Table table) {
+		this.timeUsed.updateTableTimeValues(table);
+	}
+
+	/**
+	 * 
+	 */
+	private void populateTimeUsed() {
+		this.timeUsed.initializeTimeUsedValues();
+	}
+	
+	public TimeUsed getTimeUsed() {
+		return timeUsed;
+	}
+
+	public void setTimeUsed(TimeUsed timeUsed) {
+		this.timeUsed = timeUsed;
 	}
 }

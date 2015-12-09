@@ -2,21 +2,11 @@
  * 
  */
 
-/**
- * @author Jhansi
- *
- */
 public class DinerOrder {
 	
-	public int numberOfBurgers;
-	public int numberOfFries;
-	public int numberOfCokes;
-	public int numberOfSundae;
-	public boolean burgersReady = false;
-	public boolean friesReady = false;
-	public boolean cokeReady = false;
-	public boolean sundaeReady = false;
-	
+	public ItemCount itemCount = new ItemCount();
+	public ItemReady itemReady = new ItemReady();
+
 	/**
 	 * @param numberOfBurgers
 	 * @param numberOfFries
@@ -25,32 +15,33 @@ public class DinerOrder {
 	 */
 	public DinerOrder(int numberOfBurgers, int numberOfFries, int numberOfCokes, int numberOfSundae) {
 		
-		this.numberOfBurgers = numberOfBurgers;
-		this.numberOfFries = numberOfFries;
-		this.numberOfCokes = numberOfCokes;
-		this.numberOfSundae = numberOfSundae;
-		
-		if(numberOfFries > 0)
-			friesReady = false;
-		else
-			friesReady = true;
-		
-		if(numberOfCokes > 0) 
-			cokeReady = false;
-		else
-			cokeReady = true;
-		
-		if(numberOfSundae > 0) 
-			sundaeReady = false;
-		else
-			sundaeReady = true;
+		this.itemCount.initialize(numberOfBurgers,numberOfFries,numberOfCokes,numberOfSundae);
+		this.itemReady.initialize(itemCount);
+
 	}
 	
+	public ItemCount getItemCount() {
+		return itemCount;
+	}
+
+	public void setItemCount(ItemCount itemCount) {
+		this.itemCount = itemCount;
+	}
+	
+	public ItemReady getItemReady() {
+		return itemReady;
+	}
+
+	public void setItemReady(ItemReady itemReady) {
+		this.itemReady = itemReady;
+	}
+
 	/**
 	 * @return boolean
 	 */
 	public boolean isComplete() {
-		if(burgersReady && friesReady && cokeReady && sundaeReady)
+		if(this.getItemReady().isBurgersReady() && this.getItemReady().isFriesReady() && this.getItemReady().isCokeReady()
+				&& this.getItemReady().isSundaeReady() )
 			return true;
 		else
 			return false;

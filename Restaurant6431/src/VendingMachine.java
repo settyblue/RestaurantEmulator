@@ -2,10 +2,6 @@
  * 
  */
 
-/**
- * @author Jhansi
- *
- */
 public class VendingMachine {
 	private final int MAX_TIME=120;
 	private static VendingMachine instance = null;
@@ -30,7 +26,7 @@ public class VendingMachine {
 	
 	public PrepareItem getMachineFor(DinerOrder order) {
 		while(Timer.getStaticInstance().getTime() <=MAX_TIME || Diners.getStaticInstance().getNumberOfCurrentDiners() > 0) {
-			if(!order.burgersReady) {
+			if(!order.getItemReady().isBurgersReady()) {
 				if(!burgerMachine.isOccupied()) {
 					synchronized(burgerMachine) {
 						if(!burgerMachine.isOccupied()) {		
@@ -41,7 +37,7 @@ public class VendingMachine {
 					}
 				}
 			}
-			if(!order.friesReady) {
+			if(!order.getItemReady().isFriesReady()) {
 				if(!friesMachine.isOccupied()) {
 					synchronized(friesMachine) {
 						if(!friesMachine.isOccupied()) {	
@@ -52,7 +48,7 @@ public class VendingMachine {
 					}
 				}
 			}
-			if(!order.cokeReady) {
+			if(!order.getItemReady().isCokeReady()) {
 				if(!cokeMachine.isOccupied()) {
 					synchronized(cokeMachine) {
 						if(!cokeMachine.isOccupied()) {	
@@ -63,7 +59,7 @@ public class VendingMachine {
 					}
 				}
 			}
-			if(!order.sundaeReady) {
+			if(!order.getItemReady().isSundaeReady()) {
 				if(!sundaeMachine.isOccupied()) {
 					synchronized(sundaeMachine) {
 						if(!sundaeMachine.isOccupied()) {	
