@@ -1,7 +1,6 @@
-/**
- * 
- */
+package Resources.Machines;
 
+import Resources.*;
 
 public class CokeMachine extends PrepareItem{
 	

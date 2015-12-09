@@ -1,6 +1,4 @@
-/**
- * 
- */
+package MenuItems;
 
 
 public class ItemReady {

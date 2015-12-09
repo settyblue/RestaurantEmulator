@@ -1,6 +1,7 @@
-/**
- * 
- */
+package Customer;
+
+import Timer.*;
+
 
 public class Diners {
 	

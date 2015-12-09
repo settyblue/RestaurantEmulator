@@ -1,6 +1,8 @@
-/**
- * 
- */
+package Resources;
+
+import Customer.*;
+import Timer.*;
+import Output.*;
 
 public class PrepareItem {
 	public int timer;

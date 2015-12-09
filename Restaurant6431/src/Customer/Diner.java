@@ -1,11 +1,9 @@
-/**
- * 
- */
+package Customer;
 
-/**
- * @author Jhansi
- *
- */
+import Resources.*;
+import Timer.*;
+import Output.*;
+
 public class Diner implements Runnable{
 	
 	private int dinerId;

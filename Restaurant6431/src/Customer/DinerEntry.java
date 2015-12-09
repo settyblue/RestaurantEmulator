@@ -1,11 +1,5 @@
-/**
- * 
- */
+package Customer;
 
-/**
- * @author Jhansi
- *
- */
 public class DinerEntry {
 	
 	public int arrivalTime;

@@ -1,11 +1,7 @@
-/**
- * 
- */
+package Output;
 
-/**
- * @author Jhansi
- *
- */
+import Customer.DinerEntry;
+
 public class OutputLogger {
 	private static OutputLogger instance;
 	private DinerEntry[] outputData;

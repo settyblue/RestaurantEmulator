@@ -1,6 +1,6 @@
-/**
- * 
- */
+package Timer;
+
+import Resources.*;
 
 public class TimeUsed {
 	private int timeBurgerMacihineWasUsed;

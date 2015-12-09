@@ -1,6 +1,6 @@
-/**
- * 
- */
+package Customer;
+
+import MenuItems.*;
 
 public class DinerOrder {
 	

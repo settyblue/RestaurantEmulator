@@ -1,11 +1,10 @@
-/**
- * Emulator class to emulate the running of the restaurant.
- */
+package Simulator;
 
-/**
- * @author Jhansi
- *
- */
+import Resources.*;
+import Customer.*;
+import Timer.*;
+import Output.*;
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;

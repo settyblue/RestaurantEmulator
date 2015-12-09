@@ -1,11 +1,8 @@
-/**
- * 
- */
+package Resources;
 
-/**
- * @author Jhansi
- *
- */
+import Timer.*;
+import Customer.*;
+
 public class Table {
 	
 	public int tableId;		

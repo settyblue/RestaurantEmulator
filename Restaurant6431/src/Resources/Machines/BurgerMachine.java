@@ -1,6 +1,6 @@
-/**
- * 
- */
+package Resources.Machines;
+
+import Resources.*;
 
 
 public class BurgerMachine extends PrepareItem{

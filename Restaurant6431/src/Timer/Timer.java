@@ -1,11 +1,5 @@
-/**
- * 
- */
+package Timer;
 
-/**
- * @author Jhansi
- *
- */
 public class Timer {
 	
 	private static Timer timer = null;

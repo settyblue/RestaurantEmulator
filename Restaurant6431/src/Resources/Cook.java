@@ -1,6 +1,9 @@
-/**
- * 
- */
+package Resources;
+
+import Timer.*;
+import Output.*;
+import Customer.*;
+import Resources.Machines.*;
 
 public class Cook implements Runnable{
 	

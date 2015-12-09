@@ -1,6 +1,8 @@
-/**
- * 
- */
+package Resources.Machines;
+
+import Customer.*;
+import Timer.*;
+import Resources.*;
 
 public class VendingMachine {
 	private final int MAX_TIME=120;

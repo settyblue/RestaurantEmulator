@@ -1,11 +1,5 @@
-/**
- * 
- */
+package MenuItems;
 
-/**
- * @author rakshith
- *
- */
 public class ItemCount {
 	private int numberOfBurgers;
 	private int numberOfFries;
